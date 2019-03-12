@@ -2,7 +2,7 @@
 #define WORK_H
 #include <iostream>
 #include <vector>
-
+#include <queue>
 
 using namespace std;
 
@@ -10,14 +10,24 @@ class work{
 private:
 	int hits;
 	int misses;
+	
 public:
-	std::vector<int> cache;
+	int page;
+
+	queue<int> Q;
+	int cache[100];
+	//std::vector<int> cache;
 	//std::vector<int> pages;
+
+	work(); //temp for now, idk what this'll have to do yet
+
+	void read(int p);
+	int search(int p);
 
 	void hit();
 	void miss();
 	int gethits();
-	int getmisses(); 
+	int getmisses();
 
 	void fifo(int p);
 	void random(int p);
