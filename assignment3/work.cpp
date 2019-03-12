@@ -1,6 +1,14 @@
 #include "work.h"
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 
 using namespace std;
+
+work::work(){
+	this->clockhand = 0;
+}
+
 
 void work::hit(){
 	this->hits += 1;
@@ -49,4 +57,38 @@ void work::fifo(int p){
 	}
 }
 
+void work::random(int p){
+	if(search(p) == 101){ //MISS
+		int temp;
+		srand(time(NULL)); //copied code from cplusplus.com
+		temp = rand() % 100;
+		cache[temp] = p;
+		miss();
+	}
+	if(search(p) < 100){ //HIT
+		hit();
+	}else{
+		cout << "search(int p) is not working";
+	}
+}
+
+void work::clock(int p){
+	if(search(p) == 101){ //MISS
+		while(Fido[clockhand] != 0){
+			Fido[clockhand] = 0;
+			clockhand++;
+			if(clockhand == 100){
+				this->clockhand = 0;
+			}
+		}
+		cache[clockhand] = p;
+		miss();
+	}
+	if(search(p) < 100){ //HIT
+		Fido[search(p)] = 1;
+		hit();
+	}else{
+		cout << "search(int p) is not working";
+	}
+}
 

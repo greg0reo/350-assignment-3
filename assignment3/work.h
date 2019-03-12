@@ -13,9 +13,11 @@ private:
 	
 public:
 	int page;
+	int clockhand;
 
 	queue<int> Q;
 	int cache[100];
+	int Fido[100];
 	//std::vector<int> cache;
 	//std::vector<int> pages;
 
@@ -29,10 +31,11 @@ public:
 	int gethits();
 	int getmisses();
 
-	void fifo(int p);
+	void fifo(int p);// uses a queue (Q)
 	void random(int p);
 	void lru(int p);
-	void clock(int p);
+	void clock(int p);// uses an array (Fido) Fido[i] = cache[i].recentlyused()
+			  // also uses clockhand to remember where the clockhand is
 	void opt(int p);
 
 };
