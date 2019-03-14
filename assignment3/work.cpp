@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+#include <list>
 
 using namespace std;
 
-work::work(){
+work::work(int size){
 	this->clockhand = 0;
 	cacheF = new list<int>();
+	cacheSize = size;
 }
 
 
@@ -72,6 +74,7 @@ void work::fifo(int p){
 	if(searchF(p) == 101){ //MISS
 		if(cacheF.size()<cacheSize){
 			cacheF.push_back(p);
+			miss();
 			return;
 		}else{
 			cacheF.pop_front();
@@ -109,6 +112,7 @@ void work::random(int p){
 	if(searchF(p) == 101){ //MISS
 		if(cacheF.size() < cacheSize){
 			cacheF.push_back(p);
+			miss();
 			return;
 		}
 		srand(time(NULL));
@@ -147,6 +151,7 @@ void work::LRU(int p){
 	if(searchF(p) == 101){ //MISS
 		if(cacheF.size() < cacheSize){
 			cacheF.push_back(p);
+			miss();
 			return;
 		}
 		cacheF.pop_front;
@@ -163,5 +168,40 @@ void work::LRU(int p){
 	}
 }
 
-void work::OPT(int p,list<int> access,
+void work::OPT(int p,list<int> access){
+	if(searchF(p) == 101){ //MISS
+		if(cacheF.size() < cacheSize){
+			cacheF.push_back(p);
+			miss();
+			return;
+		}
+		stl::list<int> temp = new list<int>(cacheF);
+		std::list<int>::iterator itr = access.begin();
+		for(itr;itr != access.end(); itr++){
+			if(temp.size() == 1){
+				break;
+			}
+			temp.remove(*itr);
+			itr++;
+		}
+		cacheF.remove(*(temp.begin()));
+		cacheF.push_back(p);
+		free(temp);
+		miss();
+	}
+	if(searchF(p) < cacheSize){ //HIT
+		hit();
+	}else{
+		cout<< "Sum Ting Wong" << endl;
+	}
+}
+			
+		 
+	
+
+
+
+
+
+
 
