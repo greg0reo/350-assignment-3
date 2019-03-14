@@ -62,7 +62,7 @@ int main(int argc, char *argv[]){
 
   work Gree = work(5);
   int temp;
-  printf("Cache size: 5\n\n");
+  printf("Cache Size: 5\n\n");
   for(int i = 10; i<=100; i+= 5){
     //check different workloads
 	//PRINT CACHE SIZE HERE
@@ -122,13 +122,19 @@ int main(int argc, char *argv[]){
 	printf("Optimized Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //OPT
-	  
-
+	  temp = noLocality.front();
+	  noLocality.pop_front();
+	  Gree.OPT(temp, noLocality); //may be wrong implementation of OPT
+	  noLocality.push_back(temp);
 	}
 
-    //then increment cache size
-	
+	printf("Hits: %d          ", Gree.gethits());
+	printf("Misses: %d\n", Gree.getmisses());
+	Gree.cacheF.clear();
 
+    //then increment cache size
+	Gree.cacheSize = i;
+	printf("/n--------------------\n\nCache Size: %d", i);
 
   }
 
