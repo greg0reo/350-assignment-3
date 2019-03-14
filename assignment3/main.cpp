@@ -1,4 +1,4 @@
-#include work.h"
+#include "work.h"
 #include <iostream>
 #include <list>
 #include <time.h>
@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
   int page;
   for(int i=0; i < 10000; i++){
     page = rand()% 100;
-    noLocality.push_back(page)
+    noLocality.push_back(page);
   }
 
   
@@ -62,16 +62,18 @@ int main(int argc, char *argv[]){
 
   work Gree = work(5);
   int temp;
-  for(int i = 10; i=<100; i+= 5){
+  printf("Cache size: 5\n\n");
+  for(int i = 10; i<=100; i+= 5){
     //check different workloads
 	//PRINT CACHE SIZE HERE
 
 	printf("Random Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //Random first
-	  temp = noLocality.pop_front();
+	  temp = noLocality.front(); 
+	  noLocality.pop_front();
 	  Gree.random(temp);
-	  noLocality.push)back(temp); //this way, the List remains the same after looping through it
+	  noLocality.push_back(temp); //this way, the List remains the same after looping through it
 	}
 
 	printf("Hits: %d          ", Gree.gethits());
@@ -81,7 +83,8 @@ int main(int argc, char *argv[]){
 	printf("FIFO Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //FIFO
-	  temp = noLocality.pop_front();
+	  temp = noLocality.front();
+	  noLocality.pop_front();
 	  Gree.fifo(temp);
 	  noLocality.push_back(temp);
 	}
@@ -93,7 +96,8 @@ int main(int argc, char *argv[]){
 	printf("LRU Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //LRU
-	  temp = noLocality.pop_front();
+	  temp = noLocality.front();
+	  noLocality.pop_front();
 	  Gree.LRU(temp);
 	  noLocality.push_back(temp);
 	}
@@ -105,7 +109,8 @@ int main(int argc, char *argv[]){
 	printf("Clock Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //Clock
-	  temp = noLocality.pop_front();
+	  temp = noLocality.front();
+	  noLocality.pop_front();
 	  Gree.clock(temp);
 	  noLocality.push_back(temp);
 	}
