@@ -95,19 +95,24 @@ printf("Clock Page Ejection\n");
 */
   
   
-
+/***************************************************************************************/
+/*										       */
+/*				TESTING SECTION					       */
+/*										       */
+/***************************************************************************************/
 	int temp;
   printf("Cache Size: 5\n\n");
   for(int i = 10; i<=106; i+= 5){
     //check different workloads
 	//PRINT CACHE SIZE HERE
 
-    /*
+    /*			NO LOCALITY
     for(int i=0; i < 10000; i++){
       page = rand()% 100;
       noLocality.push_back(page);
     }*/
 
+// 		 80-20
 
      for(int i=0; i < 10000; i++){
     chance = (rand() % 100);
@@ -122,7 +127,7 @@ printf("Clock Page Ejection\n");
 
 
 
-/*
+/*               LOOPING SEQUENTIAL
 
 
   counter = 0;
