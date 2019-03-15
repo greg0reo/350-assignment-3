@@ -8,16 +8,17 @@ using namespace std;
 int main(int argc, char *argv[]){
 
 
-  
+  work Gree = work(100);
   //-----------------NO LOCALITY---------------------
 
-  list <int> noLocality;
+  list<int> noLocality;
 
-  srand (time(NULL));
+  srand(time(NULL));
   int page;
   for(int i=0; i < 10000; i++){
-    page = rand()% 100;
+    page = rand()% 50;
     noLocality.push_back(page);
+		//noLocality.push_back(rand()%10);
   }
 
   
@@ -60,8 +61,41 @@ int main(int argc, char *argv[]){
 
   //Testing the various page dropping alogirthms we've designed
 
-  work Gree = work(5);
-  int temp;
+  /*int temp;
+	for(int j = 0; j < 10000; j++){
+	  //Random first
+	  temp = noLocality.front(); 
+	  noLocality.pop_front();
+		cout<<"we are looking for page number " << temp << endl;
+	  Gree.random(temp);
+	  noLocality.push_back(temp); //this way, the List remains the same after looping through it
+	}
+	printf("Hits: %d          ", Gree.gethits());
+	printf("Misses: %d\n", Gree.getmisses());
+	Gree.cacheF.clear();
+	Gree.misses = 0;
+	Gree.hits = 0;*/
+
+int temp;
+printf("Clock Page Ejection\n");
+	for(int j = 0; j < 50; j++){
+	  //Clock
+	  temp = noLocality.front();
+	  noLocality.pop_front();
+	  Gree.clock(temp);
+	  noLocality.push_back(temp);
+	}
+
+	printf("Hits: %d          ", Gree.gethits());
+	printf("Misses: %d\n", Gree.getmisses());
+	Gree.cacheF.clear();
+	Gree.misses = 0;
+	Gree.hits = 0;
+
+  
+  
+
+	/*int temp;
   printf("Cache Size: 5\n\n");
   for(int i = 10; i<=100; i+= 5){
     //check different workloads
@@ -79,6 +113,9 @@ int main(int argc, char *argv[]){
 	printf("Hits: %d          ", Gree.gethits());
 	printf("Misses: %d\n", Gree.getmisses());
 	Gree.cacheF.clear();
+	Gree.misses = 0;
+	Gree.hits = 0;
+
 
 	printf("FIFO Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
@@ -92,6 +129,8 @@ int main(int argc, char *argv[]){
 	printf("Hits: %d          ", Gree.gethits());
 	printf("Misses: %d\n", Gree.getmisses());
 	Gree.cacheF.clear();
+	Gree.misses = 0;
+	Gree.hits = 0;
 
 	printf("LRU Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
@@ -105,6 +144,8 @@ int main(int argc, char *argv[]){
 	printf("Hits: %d          ", Gree.gethits());
 	printf("Misses: %d\n", Gree.getmisses());
 	Gree.cacheF.clear();
+	Gree.misses = 0;
+	Gree.hits = 0;
 
 	printf("Clock Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
@@ -118,6 +159,8 @@ int main(int argc, char *argv[]){
 	printf("Hits: %d          ", Gree.gethits());
 	printf("Misses: %d\n", Gree.getmisses());
 	Gree.cacheF.clear();
+	Gree.misses = 0;
+	Gree.hits = 0;
 
 	printf("Optimized Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
@@ -125,18 +168,31 @@ int main(int argc, char *argv[]){
 	  temp = noLocality.front();
 	  noLocality.pop_front();
 	  Gree.OPT(temp, noLocality); //may be wrong implementation of OPT
-	  noLocality.push_back(temp);
+	  //noLocality.push_back(temp);
 	}
 
 	printf("Hits: %d          ", Gree.gethits());
 	printf("Misses: %d\n", Gree.getmisses());
 	Gree.cacheF.clear();
+	noLocality.clear();
+	Gree.misses = 0;
+	Gree.hits = 0;
 
     //then increment cache size
 	Gree.cacheSize = i;
 	printf("/n--------------------\n\nCache Size: %d", i);
 
+
+  for(int i=0; i < 10000; i++){
+    page = rand()% 100;
+    noLocality.push_back(page);
+		//noLocality.push_back(rand()%10);
   }
+
+
+  }
+*/
+
 
   
   
