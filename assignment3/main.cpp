@@ -8,15 +8,15 @@ using namespace std;
 int main(int argc, char *argv[]){
 
 
-  work Gree = work(100);
+  work Gree = work(60);
   //-----------------NO LOCALITY---------------------
 
   list<int> noLocality;
 
   srand(time(NULL));
   int page;
-  for(int i=0; i < 10000; i++){
-    page = rand()% 50;
+  for(int i=0; i < 100; i++){
+    page = rand()% 100;
     noLocality.push_back(page);
 		//noLocality.push_back(rand()%10);
   }
@@ -31,12 +31,12 @@ int main(int argc, char *argv[]){
   srand(time(NULL));
   int chance;
   for(int i=0; i < 10000; i++){
-    chance = rand() % 10 +1;
-    if(chance > 2){
+    chance = (rand() % 10) +1;
+    if(chance <= 2){
       page = rand()% 20;
       eightTwo.push_back(page);
     }else{
-      page = rand()% 80 +20;
+      page = (rand()% 81) +20;
       eightTwo.push_back(page);
     }
   }
@@ -78,12 +78,12 @@ int main(int argc, char *argv[]){
 
 int temp;
 printf("Clock Page Ejection\n");
-	for(int j = 0; j < 50; j++){
+	for(int j = 0; j < 10000; j++){
 	  //Clock
-	  temp = noLocality.front();
-	  noLocality.pop_front();
+	  temp = eightTwo.front();
+	  eightTwo.pop_front();
 	  Gree.clock(temp);
-	  noLocality.push_back(temp);
+	  eightTwo.push_back(temp);
 	}
 
 	printf("Hits: %d          ", Gree.gethits());

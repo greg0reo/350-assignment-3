@@ -168,21 +168,27 @@ void work::clock(int p){
 		list<int>::iterator cacher = cacheF.begin();
 		for(int i = 0 ; i< clockhand;i++){
 			clocker++;
-			if(clocker == Fido.end()) clocker = Fido.begin();
+			//if(clocker == Fido.end()) clocker = Fido.begin();
 			cacher++;
-			if(cacher == cacheF.end()) cacher = cacheF.begin();
+			//if(cacher == cacheF.end()) cacher = cacheF.begin();
 		}
 		while(*clocker != 0){
 			*clocker = 0;
 			clocker++;
+			if(clocker == Fido.end()) clocker = Fido.begin();
 			cacher++;
+			if(cacher == cacheF.end()) cacher = cacheF.begin();
 			clockhand++;
 		}
-		*cacher = p;
-		*clocker = 1;
+		//*cacher = p;
+		//*clocker = 1;
+		cacheF.erase(cacher);
+		Fido.erase(clocker);
+		cacheF.push_back(p);
+		Fido.push_back(1);
 		clockhand++;
 		//if(clockhand < cacheSize) this->clockhand -= cacheSize;		
-		clockhand= (clockhand+1)%cacheSize;
+		clockhand= (clockhand)%cacheSize;
 		miss();
 		return;
 	}
