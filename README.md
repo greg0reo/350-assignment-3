@@ -10,9 +10,9 @@ To do this:
   - uncomment the block of code marked with your chosen workload
   - comment out the block of code
   - change all occurences of unwanted workloads to the workload you desire to change. 
-      > There should be comments above these occurences       
-      > There should be 14 such occurences
-      > comment/uncomment the desired code
+      - There should be comments above these occurences       
+      - There should be 14 such occurences
+      - comment/uncomment the desired code
  
  
 Now all you have to do is type "make" in the terminal, and run "./main" !
