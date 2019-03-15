@@ -10,21 +10,25 @@ using namespace std;
 
 class work{
 private:
-	int hits;
-	int misses;
-	
 public:
+	int hits = 0;
+	int misses = 0;
+	
+
 	//the max that filledPages can be is the cache size
 	int cacheSize;
 	//may not need this, just use cacheF.size()
 	int filledPages;
 	int page;
+	//list<int>::iterator clockhand;
 	int clockhand;
+	list<int>::iterator cachehand;
 
 	queue<int> Q;
 	int cache[100];
-	int Fido[100];
+	//int Fido[100];
 	list<int> cacheF;
+	list<int> Fido;
 	//add things to the list. whenever you miss, check to see if its filled. If it is, replace a page, otherwise add it
 	//std::vector<int> cache;
 	//std::vector<int> pages;

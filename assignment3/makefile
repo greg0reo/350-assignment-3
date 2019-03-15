@@ -1,7 +1,7 @@
 all: main
 
 main: main.o work.o
-	g++ main.o work.o -o main.exe
+	g++ main.o work.o -o main
 
 main.o: main.cpp
 	g++ -g -c main.cpp
@@ -10,4 +10,5 @@ work.o: work.cpp work.h
 	g++ -g -c work.cpp
 
 clean:
-	rm -f *.o	
+	rm -f *.o
+	rm -f ./main	
