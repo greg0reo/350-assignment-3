@@ -142,16 +142,19 @@ printf("Clock Page Ejection\n");
 	printf("Random Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //Random first
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //temp = noLocality.front();
 	  temp = eightTwo.front();
 	  //temp = loopSeq.front();
 		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.pop_front();
 	  eightTwo.pop_front();
 	  //loopSeq.pop_front();
 		
 	  Gree.random(temp);
 		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp); //this way, the List remains the same after looping through it
 	  //loopSeq.push_back(temp);
@@ -167,16 +170,19 @@ printf("Clock Page Ejection\n");
 	printf("FIFO Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //FIFO
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //temp = noLocality.front();
 	  temp = eightTwo.front();
 	  //temp = loopSeq.front();
 		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.pop_front();
 	  eightTwo.pop_front();
 	  //loopSeq.pop_front();
 		
 	  Gree.fifo(temp);
 		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp);
 	  //loopSeq.push_back(temp);
@@ -192,16 +198,19 @@ printf("Clock Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //LRU
 		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //temp = noLocality.front();
 	  temp = eightTwo.front();
 	  //temp = loopSeq.front();
 		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.pop_front();
 	  eightTwo.pop_front();
 	  //loopSeq.pop_front();
 		
 	  Gree.LRU(temp);
 		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp);
 	  //loopSeq.push_back(temp);
@@ -216,16 +225,22 @@ printf("Clock Page Ejection\n");
 	printf("Clock Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //Clock
+		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //temp = noLocality.front();
 	  temp =eightTwo.front();
 	  //temp = loopSeq.front();
 		
+		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.pop_front();
 	  eightTwo.pop_front();
 	  //loopSeq.pop_front();
 		
 	  Gree.clock(temp);
 		
+		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp);
 	  //loopSeq.push_back(temp);
@@ -240,13 +255,17 @@ printf("Clock Page Ejection\n");
 	printf("Optimized Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //OPT
+		
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //temp = noLocality.front();
 	  temp = eightTwo.front();
  	  //temp = loopSeq.front();
-		
+	  
+	  //PLEASE SELECT YOUR WORKLOAD
 	  //noLocality.pop_front();
 	  eightTwo.pop_front();
 	  //loopSeq.pop_front();
+		
 	  Gree.OPT(temp, noLocality); //may be wrong implementation of OPT
 	  //noLocality.push_back(temp);
 	}
