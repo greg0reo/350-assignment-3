@@ -142,13 +142,19 @@ printf("Clock Page Ejection\n");
 	printf("Random Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //Random first
-	  //temp = noLocality
-	  temp = eightTwo.front(); 
-	  //noLocality
+	  //temp = noLocality.front();
+	  temp = eightTwo.front();
+	  //temp = loopSeq.front();
+		
+	  //noLocality.pop_front();
 	  eightTwo.pop_front();
+	  //loopSeq.pop_front();
+		
 	  Gree.random(temp);
-	  //noLocality
+		
+	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp); //this way, the List remains the same after looping through it
+	  //loopSeq.push_back(temp);
 	}
 
 	printf("Hits: %d          ", Gree.gethits());
@@ -161,13 +167,19 @@ printf("Clock Page Ejection\n");
 	printf("FIFO Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //FIFO
-	  //temp = noLocality
+	  //temp = noLocality.front();
 	  temp = eightTwo.front();
-	  //noLocality
+	  //temp = loopSeq.front();
+		
+	  //noLocality.pop_front();
 	  eightTwo.pop_front();
+	  //loopSeq.pop_front();
+		
 	  Gree.fifo(temp);
-	  //noLocality
+		
+	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp);
+	  //loopSeq.push_back(temp);
 	}
 
 	printf("Hits: %d          ", Gree.gethits());
@@ -179,13 +191,20 @@ printf("Clock Page Ejection\n");
 	printf("LRU Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //LRU
-	  //temp = noLocality
+		
+	  //temp = noLocality.front();
 	  temp = eightTwo.front();
-	  //noLocality
+	  //temp = loopSeq.front();
+		
+	  //noLocality.pop_front();
 	  eightTwo.pop_front();
+	  //loopSeq.pop_front();
+		
 	  Gree.LRU(temp);
-	  //noLocality
+		
+	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp);
+	  //loopSeq.push_back(temp);
 	}
 
 	printf("Hits: %d          ", Gree.gethits());
@@ -197,13 +216,19 @@ printf("Clock Page Ejection\n");
 	printf("Clock Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //Clock
-	  //temp = noLocality
+	  //temp = noLocality.front();
 	  temp =eightTwo.front();
-	  //noLocality
+	  //temp = loopSeq.front();
+		
+	  //noLocality.pop_front();
 	  eightTwo.pop_front();
+	  //loopSeq.pop_front();
+		
 	  Gree.clock(temp);
-	  //noLocality
+		
+	  //noLocality.push_back(temp);
 	  eightTwo.push_back(temp);
+	  //loopSeq.push_back(temp);
 	}
 
 	printf("Hits: %d          ", Gree.gethits());
@@ -215,10 +240,13 @@ printf("Clock Page Ejection\n");
 	printf("Optimized Page Ejection\n");
 	for(int j = 0; j < 10000; j++){
 	  //OPT
-	  //temp = noLocality
+	  //temp = noLocality.front();
 	  temp = eightTwo.front();
-	  //noLocality
+ 	  //temp = loopSeq.front();
+		
+	  //noLocality.pop_front();
 	  eightTwo.pop_front();
+	  //loopSeq.pop_front();
 	  Gree.OPT(temp, noLocality); //may be wrong implementation of OPT
 	  //noLocality.push_back(temp);
 	}
